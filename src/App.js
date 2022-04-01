@@ -1,4 +1,4 @@
-import './App.css'
+import styles from './App.module.css'
 import { useState } from 'react'
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       <form action="">
         input2 :
         <input type="text" name="input2" onChange={handlechange} />
