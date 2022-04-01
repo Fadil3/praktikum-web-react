@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
 
 function App() {
+  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="App">
+        {count === 0 ? (
+          <h1>coba klik tombol nya</h1>
+        ) : (
+          <h1>Hello World {count}</h1>
+        )}
+        <button onClick={() => setCount(count - 1)}>kurang - </button>
+        <button onClick={() => setCount(count + 1)}>tambah +</button>
+      </div>
+      <div className="App">
+        {isLoading ? <h1>Loading...</h1> : <h1>Hello World</h1>}
+        <button onClick={() => setIsLoading(!isLoading)}>
+          is loading ? {isLoading === true ? 'true' : 'false'}
+        </button>
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App
